@@ -110,6 +110,15 @@ func (c Card) Suit() Suit {
 	return Suit(v / r)
 }
 
+func (c Card) Id() uint {
+	i := uint(0)
+	for v := uint32(c); v != 0; v = v >> 1 {
+		i++
+	}
+
+	return i - 1
+}
+
 const (
 	Hearts_7 Card = Card(uint32(Suit_Hearts) * uint32(Rank_7))
 	Hearts_8 Card = Card(uint32(Suit_Hearts) * uint32(Rank_8))

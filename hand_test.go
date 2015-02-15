@@ -24,5 +24,21 @@ func TestHand(t *testing.T) {
 	if !hand.Empty() {
 		t.Errorf("Hand should be empty, but contains %v.", hand)
 	}
+}
 
+func TestDeal(t *testing.T) {
+	var count [32]int
+	hands := DealHands()
+
+	for _, hand := range hands {
+		for _, c := range hand.List() {
+			count[c.Id()]++
+		}
+	}
+
+	for _, c := range count {
+		if c != 1 {
+			t.Fail()
+		}
+	}
 }

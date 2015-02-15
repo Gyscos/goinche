@@ -20,6 +20,15 @@ func TestCardCombinations(t *testing.T) {
 	}
 }
 
+func TestCardIds(t *testing.T) {
+	for i := uint(0); i < uint(32); i++ {
+		c := GetCard(i)
+		if c.Id() != i {
+			t.Fail()
+		}
+	}
+}
+
 func TestCardStrings(t *testing.T) {
 	data := []Result{
 		{c: Hearts_8, r: "8♥"},
