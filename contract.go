@@ -5,7 +5,7 @@ type ContractBet int
 type Contract struct {
 	Bet    ContractBet
 	Color  Suit
-	Author int
+	Author PlayerID
 }
 
 const (

@@ -22,6 +22,10 @@ func (h Hand) Has(c Card) bool {
 	return (uint32(h) & uint32(c)) != 0
 }
 
+func (h Hand) HasAny(suit Suit) bool {
+	return (uint32(h) & (uint32(Rank_Mask) * uint32(suit))) != 0
+}
+
 // Returns TRUE if the hand contains no card.
 func (h Hand) Empty() bool {
 	return h == 0
@@ -104,3 +108,10 @@ func DealHands() [4]Hand {
 
 	return result
 }
+
+const (
+	Hand_Hearts   Hand = Hand(uint32(Suit_Hearts) * uint32(Rank_Mask))
+	Hand_Spades   Hand = Hand(uint32(Suit_Spades) * uint32(Rank_Mask))
+	Hand_Diamonds Hand = Hand(uint32(Suit_Diamonds) * uint32(Rank_Mask))
+	Hand_Clubs    Hand = Hand(uint32(Suit_Clubs) * uint32(Rank_Mask))
+)
