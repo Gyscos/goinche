@@ -4,7 +4,7 @@ type ContractBet int
 
 type Contract struct {
 	Bet    ContractBet
-	Color  Suit
+	Trump  Suit
 	Author PlayerID
 }
 

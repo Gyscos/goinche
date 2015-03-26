@@ -12,6 +12,22 @@ func TestGame(t *testing.T) {
 	}
 
 	// Phase 1: Bids
+	a := game.StartAuction()
+	a.Bid(&Contract{
+		Bet:    Bet_80,
+		Trump:  Suit_Hearts,
+		Author: 0,
+	})
+	a.Pass()
+	a.Pass()
+	a.Bid(&Contract{
+		Bet:    Bet_100,
+		Trump:  Suit_Spades,
+		Author: 3,
+	})
+	a.Pass()
+	a.Pass()
+	a.Pass()
 
 	// Phase 2: Tricks
 }

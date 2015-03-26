@@ -22,6 +22,9 @@ type GameState struct {
 
 	// Are we bidding, or playing?
 	Bidding bool
+
+	// Current contract
+	CurrentContract *Contract
 }
 
 func NewGame(first PlayerID) *GameState {
@@ -131,4 +134,10 @@ func (gs *GameState) Play(player PlayerID, card Card) error {
 	gs.CurrentPlayer = gs.CurrentPlayer.Next()
 
 	return nil
+}
+
+func (g *GameState) StartAuction() Auction {
+	return Auction{
+		game: g,
+	}
 }
